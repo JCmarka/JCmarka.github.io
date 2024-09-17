@@ -1,0 +1,373 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400;700;900&display=swap');
+
+.wrap {
+    width: 80%;          /* Ocupa el 80% del ancho de la pantalla */
+    max-width: 1200px;    /* El ancho máximo no será mayor de 1200px */
+    padding: 20px;    /* Añade espacio alrededor de todo el contenido */
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+    margin: 0 auto;       /* Esto centra el contenedor */
+}
+body {
+    font-family: "Lato", sans-serif;
+    position: relative;
+}
+/* Reset de estilos */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* Agrega un offset al scroll para evitar que las secciones queden ocultas debajo del header */
+.seccion {
+  scroll-margin-top: 90px; /* Ajusta el valor según el alto de tu header */
+}
+/* Estilos del Header */
+#header {
+    backface-visibility: hidden; /* Agrega backface-visibility para evitar problemas de renderizado */
+    position: fixed;
+    background: #ffffff, #032b44, #CE1126;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px; /* Espaciado lateral */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: gradient 5s ease-in-out infinite;
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Más dramático */
+    z-index: 1000;
+}
+#header h1 {
+    font-family: "Great Vibes", cursive;
+    font-size: 56px;
+    color: #f5f5f5;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+#header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+    filter: blur(7px);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+    animation: luz 7s infinite;
+}
+@keyframes luz {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(120%);
+    }
+}
+@keyframes gradient {
+    0%{
+        background: linear-gradient(to right, #ffffff, #032b44, #CE1126);
+    }
+    50% {
+        background: linear-gradient(to right, #CE1126, #032b44, #ffffff);
+    }
+    100% {
+        background: linear-gradient(to right, #ffffff, #032b44, #CE1126);
+    }
+}
+/* Estilos para el contenedor del logo */
+.logo-container {
+    position: absolute;
+    left: 10px; /* Posiciona el logo a 10px del borde izquierdo */
+    width: 100px; /* Puedes ajustar el tamaño */
+    height: auto;
+    display: flex;
+    align-items: right;
+    justify-content: center;
+    overflow: hidden; /* Evita que el logo se desborde del contenedor */
+}
+  
+  /* Estilos para la imagen del logo */
+  .logo {
+    max-width: 60%;  /* Ajusta el ancho al contenedor */
+    height: auto;     /* Mantiene la proporción de la imagen */
+    border-radius: 50%; /* Para hacer una imagen circular */
+    transition: transform 0.3s ease-in-out;
+}
+  .logo:hover {
+    transform: scale(1.1);
+}
+.menu-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .menu-btn span {
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: #fff;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .menu-btn:hover span {
+    background-color: #ccc;
+}
+.menu {
+  position: fixed;
+  top: 90px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.menu-container {
+  overflow-y: auto; /* Agrega overflow-y para permitir scrolling en pantallas pequeñas */
+  background-color: #f5f5f5; /* Color de fondo del recuadro */
+  padding: 20px; /* Espaciado interno del recuadro */
+  border: 1px solid #ccc; /* Borde del recuadro */
+  border-radius: 10px; /* Esquinas redondeadas del recuadro */
+  width: 80%; /* Ancho del recuadro */
+  margin: 0 auto; /* Centrado horizontal del recuadro */
+  text-align: center; /* Alineación de texto */
+}
+
+.menu-container ul {
+  list-style: none; /* Elimina viñetas */
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  flex-direction: column;
+}
+
+.menu-container li {
+  margin-bottom: 10px; /* Espaciado entre items */
+}
+
+.menu-container a {
+  color: #0097a3; /* Color de texto */
+  background-color: #f5f5f5;
+  text-decoration: none; /* Elimina subrayado */
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease-in-out;
+}
+
+.menu-container a:hover {
+  color: #3bd1ff; /* Color de texto al pasar el mouse */
+  background: linear-gradient(to right, #032b44, #CE1126, #ffffff);
+}
+
+.menu.show {
+  display: block;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.material-symbols-outlined {
+  vertical-align: middle;
+  font-size: 18px;
+  margin-right: 8px;
+}
+.footer {
+  background-color: #032B44; /* Color del footer */
+  color: #FFFFFF; /* Color del texto */
+  padding: 20px;
+  text-align: center;
+}
+
+.footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.footer a {
+  color: #FFFFFF; /* Color del texto enlaces */
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #3BD1FF; /* Color del texto enlaces al pasar el mouse */
+}
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal.show {
+  display: block;
+}
+
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  margin: 40px auto;
+  max-width: 800px;
+}
+section {
+    padding: 50px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+/* Espaciado para el contenido para evitar que quede oculto detrás del header */
+main {
+    padding-top: 90px;
+    height: 2300px;
+    padding-top: 80px;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+/* Para pantallas pequeñas (móviles) */
+@media only screen and (max-width: 860px) {
+  .wrap {
+      width: 95%;   /* Aumenta el ancho en pantallas más pequeñas */
+  }
+  #header h1 {
+      font-size: 4.3Vh;
+      margin-left: 16px;
+      
+  }
+
+}
+
+/* Para pantallas pequeñas (móviles) */
+@media only screen and (max-width: 768px) {
+  .wrap {
+      width: 95%;   /* Aumenta el ancho en pantallas más pequeñas */
+  }
+  #header h1 {
+      font-size: 4Vh;
+      margin-left: 16px;
+      
+  }
+  .menu-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .menu-container ul {
+    width: 100%;
+  }
+  
+  .menu-container li {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .menu-container a {
+    padding: 10px;
+    font-size: 16px;
+  }
+}
+/* Para pantallas aún más pequeñas (teléfonos) */
+@media only screen and (max-width: 480px) {
+  #header h1 {
+    font-size: 4.5vw;
+    margin-left: 16px;
+    
+}
+  
+  .menu-container {
+    font-size: 14px;
+  }
+  
+  .menu-container a {
+    padding: 5px;
+  }
+}
+@media print {
+  /* Oculta elementos innecesarios */
+  #footer, .menu {
+    display: none;
+  }
+  
+  /* Ajusta tamaños y márgenes */
+  body {
+    font-size: 12pt;
+    margin: 1in;
+  }
+  
+  /* Cambia colores */
+  .texto-primario {
+    color: #000;
+  }
+  
+
+  
+  /* Ajusta el ancho de la página */
+  .wrap {
+    width: 100%;
+  }
+  #header h1 {
+    font-size: 4.5vw;
+    color: #032b44;
+    margin-left: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+  /* Muestra el logo en la impresión */
+  .logo-container {
+    position: static;
+    width: 20%;
+    text-align: center;
+  }
+  
+  /* Imprime el logo a todo color */
+  .logo {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 20px;
+    filter: none;
+  }
+  
+  /* Ajusta el tamaño del logo */
+  .logo img {
+    width: 50%; /* ajusta el tamaño según sea necesario */
+    height: auto;
+  }
+}
