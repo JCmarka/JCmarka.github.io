@@ -19,6 +19,42 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.fondo {
+  background-image: url("images/FondoPtimiz.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  will-change: background-position;
+  background-size: 180% 210%;
+  image-rendering: optimizeQuality;
+  image-rendering: optimizeSpeed;
+  image-rendering: 1dppx;
+  filter: blur(2px); /* ajusta el desenfoque en píxeles */
+  /*opacity: 0.1;  ajusta la opacidad entre 0 y 1 */
+  animation: move 40s infinite;
+}
+/* Cambia colores */
+.texto-primario {
+  color: #000;
+}
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
 /* Agrega un offset al scroll para evitar que las secciones queden ocultas debajo del header */
 .seccion {
   scroll-margin-top: 90px; /* Ajusta el valor según el alto de tu header */
@@ -327,12 +363,9 @@ html {
   body {
     font-size: 12pt;
     margin: 1in;
+    
   }
   
-  /* Cambia colores */
-  .texto-primario {
-    color: #000;
-  }
   
 
   
