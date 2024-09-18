@@ -65,3 +65,12 @@ abrirTerminos.addEventListener('click', () => {
 cerrarTerminos.addEventListener('click', () => {
   modalTerminos.classList.remove('show');
 });
+//Al hacer click fuera del menu cuando está desplegado, este se cierra.
+document.addEventListener('click', function(event) {
+  const menua = document.querySelector('.menu-container');
+  const menuBtn = document.querySelector('.menu-btn');
+  // Verifica si el clic se realizó fuera del contenedor del menú
+  if (!menua.contains(event.target) && !menuBtn.contains(event.target)) {
+    menu.classList.remove('show');
+  }
+});
